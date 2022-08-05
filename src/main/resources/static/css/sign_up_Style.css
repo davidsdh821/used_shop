@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+.sign_up{
+	margin: 0 auto;
+    width: 500px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+h1 {
+    text-align: center;
+}
+.id {
+    width: 800px;
+    height: 50px;
+
+
+}
+#id_box {
+    width: 350px;
+    height: 40px;
+}
+.overlap {
+    width: 100px;
+    height: 40px;
+}
+#name {
+    width: 500px;
+    height: 40px;
+}
+
+#pass_box1 {
+    width: 500px;
+    height: 40px;
+}
+#pass_box2 {
+    width: 500px;
+    height: 40px;
+}
+#email {
+    width: 350px;
+    height: 40px;
+}
+.send{
+    width: 130px;
+    height: 40px;
+}
+
+#check {
+    width: 350px;
+    height: 40px;
+}
+.check_btn {
+    width: 130px;
+    height: 40px;
+}
+.buttons {
+    width: 220px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.join {
+    width: 100px;
+    height: 40px;
+    background-color: orange;
+    text-align: center;
+    line-height: 40px;
+    
+
+}
+.back {
+    width: 100px;
+    height: 40px;
+    background-color: gainsboro ;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 auto;
+
+}
