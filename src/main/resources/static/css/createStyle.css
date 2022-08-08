@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.content{
+    width: 1200px;
+    height: 700px;
+   
+
+}
+.subject-item {
+    display: flex;
+  
+    height: 64px;
+
+}
+.subject-word{
+    width: 200px;
+}
+
+.subject{
+    width: 800px;
+    height: 50px;
+    
+}
+
+.price-item {
+    display: flex;
+    height: 64px;
+
+}
+.price-word {
+    width: 200px;
+}
+
+.price{
+    width: 500px;
+    height: 50px;
+    
+}

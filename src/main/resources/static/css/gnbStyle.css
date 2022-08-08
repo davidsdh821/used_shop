@@ -1,5 +1,6 @@
 @charset "UTF-8";
 .header{
+	margin: 0 auto;
 	width: 1200px;
 	height: 75px;
 	
@@ -51,13 +52,13 @@
     text-decoration: none;
 }
 
-.login {
+.user-data {
     width: 200px;
     height: 75px;
     text-align: center;
     
 }
-.login > a {
+.user-data > a {
     line-height: 75px;
 }
 .log-button {
@@ -67,3 +68,86 @@
     color: #454c53;
     text-decoration: none;
 }
+
+
+
+
+/* 로그인 */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.text-log{
+    font-weight: bold;
+    line-height: 75px;
+}
+
+.login-s {
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.login{
+    width: 350px;
+    height: 400px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+#email {
+    width: 290px;
+    height: 50px;
+    display: flex;
+    margin: 0 auto;
+
+}
+.void2 {
+    height: 10px;
+}
+#password {
+    width: 290px;
+    height: 50px;
+    display: flex;
+    margin: 0 auto;
+
+}
+.loginBtn {
+    width: 300px;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: bisque;
+    border-radius: 5px;
+    line-height: 50px;
+}
+.op {
+    display: flex;
+    justify-content: space-between;
+    line-height: 30px;
+}
+.text {
+    margin-top: 80px;
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+}
+.join {
+    font-weight: bolder;
+}
+a:hover{
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.modal-sm {
+    max-width: 350px;
+}
+
+
+
+
+
+

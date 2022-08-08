@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+
+
+.content {
+    width: 1200px;
+    
+	
+}
+.infos {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+.img_box {
+    width: 500px;
+    height: 500px;
+
+}
+.main_photo{
+    width: 500px;
+    height: 500px;
+
+}
+.text_info {
+    width: 600px;
+    height: 500px;
+}
+.buttons2 {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+.good {
+    width: 70px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.good_img{
+    height: 30px;
+}
+.time {
+    width: 100px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.clock {
+    height: 20px;
+}
+.view {
+    width: 70px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.view_img {  
+    height: 20px;
+}
+.report {
+    width: 90px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between; 
+}
+
+
+.comment_seller_info {
+    width: 1200px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.comment_box {
+    width: 500px;
+    
+}
+
+#comment {
+    width: 500px;
+    height: 100px;
+}
+
+.seller_info {
+    width: 600px;
+    height: 200px;
+    background-color: gainsboro;
+
+}
+.d_box {
+    width: 550px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+.profile {
+    width: 100px;
+    height: 150px;
+    text-align: center;
+}
+.profile_img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.sell1 {
+    width: 130px;
+    height: 150px; 
+    text-align: center;
+}
+.sell_img1 {
+    width: 130px;
+    height: 130px; 
+}
+.sell2 {
+    width: 130px;
+    height: 150px; 
+    text-align: center;
+}
+.sell_img2 {
+    width: 130px;
+    height: 130px; 
+}
+.sell3 {
+    width: 130px;
+    height: 150px; 
+    text-align: center;
+}
+.sell_img3 {
+    width: 130px;
+    height: 130px; 
+}
