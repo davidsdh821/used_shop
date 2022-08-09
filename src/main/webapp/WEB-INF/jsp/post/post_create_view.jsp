@@ -20,9 +20,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
             </a>
         </div>
-        	<div class="imgs" style="width: 150; height: 150px;">
-        		
-        	</div>
+			<img id="imgs" style="width: 150; height: 150px;">
         
         </div>
         <hr>
@@ -64,7 +62,7 @@
 
         });
 		$('#file').on('change', function(event) {
-		    var file = event.target.files[0];
+		    var files = event.target.files[0];
 
 		    var reader = new FileReader(); 
 		    reader.onload = function(e) {
@@ -72,7 +70,7 @@
 		        $("#imgs").attr("src", e.target.result);
 		    }
 			
-		    reader.readAsDataURL(file);
+		    reader.readAsDataURL(files);
 		});
 
 
