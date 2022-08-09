@@ -11,9 +11,9 @@
 <br>
 <br>
 
-<label class="id"><input id="id_box" type="text"
+<label class="id d-flex"><input id="id_box" type="text"
 	class="form-control" placeholder="아이디를 입력해주세요">
-	<button class="overlap">중복확인</button></label>
+	<button type="button" class="overlap btn btn-light">중복확인</button></label>
 <br>
 <br>
 
@@ -26,15 +26,15 @@
 	class="form-control" placeholder="비밀번호를 한 번 더 입력해주세요"></label>
 <br>
 <br>
-<label class="email"> <input type="text" class="form-control"
+<label class="email d-flex"> <input type="text" class="form-control"
 	id="email" placeholder="이메일을 입력해주세요">
-	<button class="send">인증번호 보내기</button>
+	<button type="button" class="send btn btn-primary">인증번호 보내기</button>
 </label>
 <br>
 <br>
-<label class="check"><input type="text" class="form-control"
+<label class="check d-flex"><input type="text" class="form-control"
 	id="check">
-	<button class="check_btn">인증번호 확인</button>
+	<button type="button" class="check_btn btn btn-success">인증번호 확인</button>
 	<div class="time"></div></label>
 <br>
 <br>

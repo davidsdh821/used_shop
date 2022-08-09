@@ -36,3 +36,28 @@
     height: 50px;
     
 }
+.delivery-word {
+	width: 100px;
+	
+}
+.delivery {
+	width: 300px;
+	height: 30px;
+}
+
+.state-word {
+	width: 150px;
+	
+}
+.radios {
+	width: 75px;
+	line-height: 25px;
+}
+
+.explanation-word {
+	width: 100px;
+}
+.createBtn {
+	float:right;
+	
+}

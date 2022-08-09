@@ -42,7 +42,16 @@ public class PostController {
 			return "template/layout";
 		}
 		
-		
+		//http://localhost/post/post_mypage_view
+		@RequestMapping("/post_mypage_view")
+		public String PostMyPageView(Model model) {
+			
+			model.addAttribute("gnbViewName", "include/gnb");
+			model.addAttribute("viewName", "post/post_mypage_view");
+			
+			
+			return "template/layout";
+		}
 
 		
 	

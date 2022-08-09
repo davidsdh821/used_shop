@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.sign_up{
+.find{
 	margin: 0 auto;
     width: 500px;
 }
@@ -11,22 +11,19 @@ a {
 h1 {
     text-align: center;
 }
-.id {
-    width: 800px;
+#name {
+    width: 500px;
     height: 50px;
 	
 	
 }
-#id_box {
-    width: 350px;
-    height: 40px;
+
+#email_box{
+	width: 350px;
+	height: 40px;
 }
-.overlap {
-    width: 100px;
-    height: 40px;
-}
-#name {
-    width: 500px;
+.email_dup {
+    width: 150px;
     height: 40px;
 }
 
@@ -38,23 +35,6 @@ h1 {
     width: 500px;
     height: 40px;
 }
-#email {
-    width: 350px;
-    height: 40px;
-}
-.send{
-    width: 150px;
-    height: 40px;
-}
-
-#check {
-    width: 350px;
-    height: 40px;
-}
-.check_btn {
-    width: 130px;
-    height: 40px;
-}
 .buttons {
     width: 220px;
     height: 50px;
@@ -62,6 +42,7 @@ h1 {
     justify-content: space-between;
     margin: 0 auto;
 }
+
 .join {
     width: 100px;
     height: 40px;
