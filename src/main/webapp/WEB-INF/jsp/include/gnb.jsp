@@ -39,9 +39,9 @@
         <a href="#"><div class="loginBtn">로그인</div></a>
         <div class="op">
         <label class="keep"><input type="checkbox">로그인 유지</label>
-        <a class="find" href="#">아이디/비밀번호 찾기</a>
+        <a class="find" href="/user/user_find_view">아이디/비밀번호 찾기</a>
     </div>
-        <div class="text">아직 계정이 없으신가요? <a class="join" href="#"><u>회원가입</u></a></div>
+        <div class="text">아직 계정이 없으신가요? <a class="join" href="/user/user_signup_view"><u>회원가입</u></a></div>
     </div>
     </div>
 
@@ -49,6 +49,19 @@
     </div>
   </div>
 </div>
+<!-- collectionUtils.isEmpty(String) null검사나 비어있는  string검사할때 쓴다-->
+
+<script>
+	$(document).ready(function() {
+		
+		
+		
+		
+		
+	});
+
+
+</script>
 
 
 

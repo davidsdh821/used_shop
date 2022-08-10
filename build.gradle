@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'com.usedshop'
+grConsider defining a bean of type 'com.usedshop.user.dao.UserDAO' in your configuration.oup = 'com.usedshop'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -27,6 +27,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'javax.servlet:jstl:1.2'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 }
 
 tasks.named('test') {
