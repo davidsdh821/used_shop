@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,8 +33,17 @@ public class UserRestController {
 		
 		return result;
 	}
-	
-	
+	@PostMapping("/sign_up")
+	public Map<String, Object> signUp() {
+		Map<String, Object> result =  new HashMap<>();
+		
 	
 
+		
+		result.put("result", "success");
+		
+		
+		return result;
+}
+		
 }
