@@ -17,10 +17,18 @@
             <button class="button"><a class="s-word" href="#">검색</a></button>
           </div>
         </div>
-        <div class="user-data">
-	<a class="log-button" href="#" data-toggle="modal" data-target="#loginModal">로그인/회원가입</a>
-	
-</div>
+        
+  		<c:choose>
+  		<c:when test="${not empty userLoginId}">
+  		<div class="sell"><a href="#">판매하기</a></div>
+        <div class="mypage"><a href="#">${userLoginId}</a></div>
+        <div class="logout"><a href="#">로그아웃</a></div>
+  		</c:when>
+  		<c:otherwise>
+		<a class="log-button" href="#" data-toggle="modal" data-target="#loginModal">로그인/회원가입</a>
+		</c:otherwise>
+		</c:choose>
+
 </div>
 
 <!-- Modal -->
@@ -28,13 +36,14 @@
   <div class="modal-dialog modal-sm modal-dialog-centered">
     <div class="modal-content">
       	<%-- modal 창 안에 내용 넣기 --%>
+      	<form id="loginForm" action="/user/sign_in" method="post">
       	<div class="login">
         <div class="login-s">
         <h2 class="text-log">로그인</h2>
         
-        <input id="email" type="text" class="form-control" placeholder="이메일을 입력해주세요">
+        <input id="loginId" type="text" name="loginId" class="form-control" placeholder="아이디를 입력해주세요">
         <div class="void2"></div>
-        <input id="password" type="password" class="form-control" placeholder="비밀번호를 입력해주세요">
+        <input id="password" type="password" name="password" class="form-control" placeholder="비밀번호를 입력해주세요">
         <div class="void2"></div>
         <a href="#"><div class="loginBtn">로그인</div></a>
         <div class="op">
@@ -44,7 +53,7 @@
         <div class="text">아직 계정이 없으신가요? <a class="join" href="/user/user_signup_view"><u>회원가입</u></a></div>
     </div>
     </div>
-
+</form>
       	      	
     </div>
   </div>
@@ -53,6 +62,39 @@
 
 <script>
 	$(document).ready(function() {
+		
+
+		$("#loginForm").on("submit", function(e){
+			e.preventDefault();
+			let loginId = $("#loginId").val().trim();
+			let password = $("#password").val();
+			
+	 		if(loginId == "" ) {
+	 			alert("아이디를 입력하세요.");
+	 			return false;
+	 		}
+	 		if(password == "" ) {
+	 			alert("비밀번호를 입력하세요.");
+	 			return false;
+	 		}
+	 		
+	 		//폼방식
+	 		let url = $(this).attr("action");
+	 		let params = $(this).serialize();
+	 		
+	 		$.post(url, params)
+	 		.done(function(data) {
+	 			if(data.result =="success") {	
+	 				location.reload(true);
+	 			} else {
+	 				alert(data.errorMessage)
+	 				}
+	 			}
+	 		});	
+		
+	 		
+			
+		});
 		
 		
 		

@@ -238,7 +238,7 @@ $(".check_btn").on("click", function() {
 				
 				$.ajax({
 					type:"post"
-						,url:"/user/user/sign_up"
+						,url:"/user/sign_up"
 							,data:{"name": name, "loginId":loginId, "password":password, "email":email}
 						 	
 						 	,success:function(data) {

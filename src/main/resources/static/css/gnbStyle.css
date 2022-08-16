@@ -4,7 +4,8 @@
 	width: 1200px;
 	height: 75px;
 	
-	display: flex;	
+	display: flex;
+		
 }
 .logo{
     width: 200px;
@@ -52,12 +53,7 @@
     text-decoration: none;
 }
 
-.user-data {
-    width: 200px;
-    height: 75px;
-    text-align: center;
-    
-}
+
 .user-data > a {
     line-height: 75px;
 }
@@ -68,7 +64,37 @@
     color: #454c53;
     text-decoration: none;
 }
+.sell {
+    width: 100px;
+    height: 75px;
+   
+}
+.sell > a {
+    
+    line-height: 75px;
+    color: #454c53;
+}
 
+.mypage {
+    width: 100px;
+    height: 75px;
+   
+}
+.mypage > a {
+   
+    line-height: 75px;
+    color: #454c53;
+}
+.logout {
+    width: 100px;
+    height: 75px;
+   
+}
+.logout > a {
+   
+    line-height: 75px;
+    color: #454c53;
+}
 
 
 
