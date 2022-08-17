@@ -31,5 +31,11 @@ public class UserBO {
 		return userDAO.selectUser(loginId, password);
 	}
 	
+	public String getUserById(String userName, String email) {
+		
+		return userDAO.selectUserById(userName, email);
+		
+	}
+	
 	
 }

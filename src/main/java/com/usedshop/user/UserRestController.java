@@ -48,16 +48,16 @@ public class UserRestController {
 			@RequestParam("password") String password,
 			@RequestParam("email") String email
 			) {
-		
+		String encrypts = "";
 		//암호화
 		try {
-			String encrypts = EncryptUtils.encrypt(password);
+			encrypts = EncryptUtils.encrypt(password);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//db 저장
-		userBO.addUser(name, loginId, password, email);
+		userBO.addUser(name, loginId, encrypts, email);
 		
 		//결과 출력
 		Map<String, Object> result =  new HashMap<>();
@@ -101,6 +101,27 @@ public class UserRestController {
 			result.put("errorMessage", "존재하지 않는 사용자입니다");
 		}
 		
+		return result;
+		
+	}
+	
+	@RequestMapping("/find_id")
+	public Map<String, Object> findId(
+			@RequestParam("userName") String userName,
+			@RequestParam("email") String email
+			) {
+		Map<String, Object> result = new HashMap<>();	
+		String user = "";
+		
+		user = userBO.getUserById(userName, email);
+		
+		if(user == null) { //조회 되지 않는 경우
+			result.put("errorMessage", "존재하지 않는 사용자입니다");
+			
+		} else {
+			result.put("result", "success");
+			result.put("loginId", user);
+		}
 		
 		
 		
@@ -108,8 +129,24 @@ public class UserRestController {
 		
 		
 		return result;
+	}
+	
+	@RequestMapping("/confirm_user")
+	public Map<String, Object> confirmUser(
+			@RequestParam("loginId") String loginId,
+			@RequestParam("email") String email
+			) {
+			Map<String, Object> result = new HashMap<>();	
+		
+		
+		
 		
 	}
+	
+	
+	
+	
+	
 	
 		
 }

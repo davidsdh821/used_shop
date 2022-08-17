@@ -17,12 +17,26 @@ h1 {
 	
 	
 }
+#id {
+    width: 500px;
+    height: 50px;
+	
+	
+}
 
-#email_box{
+#email1{
 	width: 350px;
 	height: 40px;
 }
-.email_dup {
+.send1 {
+    width: 150px;
+    height: 40px;
+}
+#email2{
+	width: 350px;
+	height: 40px;
+}
+.send2 {
     width: 150px;
     height: 40px;
 }
@@ -43,7 +57,16 @@ h1 {
     margin: 0 auto;
 }
 
-.join {
+.find_id {
+    width: 100px;
+    height: 40px;
+    background-color: orange;
+    text-align: center;
+    line-height: 40px;
+    
+
+}
+.change_pw {
     width: 100px;
     height: 40px;
     background-color: orange;

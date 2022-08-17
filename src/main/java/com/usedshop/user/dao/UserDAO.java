@@ -23,5 +23,9 @@ public interface UserDAO {
 			@Param("loginId") String loginId, 
 			@Param("password") String password);
 	
+	public String selectUserById(
+			@Param("userName") String userName, 
+			@Param("email") String email);
+	
 	
 }

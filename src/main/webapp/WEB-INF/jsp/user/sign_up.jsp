@@ -106,14 +106,14 @@
 			
 			let email = $(this).siblings("input").val().trim();
 			//console.log(email)
- 	 		if(!email.match(emailRule)) {
-				alert("이메일 형식이 맞지 않습니다");
-				return;
-				
-			} else if(email == "") {
- 				alert("이메일을 입력해주세요")
-				return;
-			} 
+		 		if(email == "") {
+	 				alert("이메일을 입력해주세요")
+					return false;
+				} else if(!email.match(emailRule)) {
+						alert("이메일 형식이 맞지 않습니다");
+						return false;
+						
+				} 
 			
 			$.ajax({
 				type: "post"
@@ -145,14 +145,14 @@ $(".check_btn").on("click", function() {
 			let email = $("#email").val().trim();
 			let number = $(this).siblings("input").val().trim();
 			
- 	 		if(!email.match(emailRule)) {
-				alert("이메일 형식이 맞지 않습니다");
-				return false;
-				
-			} else if(email == "") {
+	 		if(email == "") {
  				alert("이메일을 입력해주세요")
 				return false;
-			} 
+			} else if(!email.match(emailRule)) {
+					alert("이메일 형식이 맞지 않습니다");
+					return false;
+					
+			}
 
 			$.ajax({
 				type:"delete"

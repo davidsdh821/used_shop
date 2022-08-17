@@ -58,6 +58,7 @@
     line-height: 75px;
 }
 .log-button {
+	line-height: 75px;
     color: #454c53;
 }
 .log-button:hover {

@@ -22,7 +22,7 @@
   		<c:when test="${not empty userLoginId}">
   		<div class="sell"><a href="#">판매하기</a></div>
         <div class="mypage"><a href="#">${userLoginId}</a></div>
-        <div class="logout"><a href="#">로그아웃</a></div>
+        <div class="logout"><a href="/user/logout">로그아웃</a></div>
   		</c:when>
   		<c:otherwise>
 		<a class="log-button" href="#" data-toggle="modal" data-target="#loginModal">로그인/회원가입</a>
@@ -36,7 +36,7 @@
   <div class="modal-dialog modal-sm modal-dialog-centered">
     <div class="modal-content">
       	<%-- modal 창 안에 내용 넣기 --%>
-      	<form id="loginForm" action="/user/sign_in" method="post">
+      	
       	<div class="login">
         <div class="login-s">
         <h2 class="text-log">로그인</h2>
@@ -45,7 +45,7 @@
         <div class="void2"></div>
         <input id="password" type="password" name="password" class="form-control" placeholder="비밀번호를 입력해주세요">
         <div class="void2"></div>
-        <a href="#"><div class="loginBtn">로그인</div></a>
+        <a href="#" type="submit"><div class="loginBtn">로그인</div></a>
         <div class="op">
         <label class="keep"><input type="checkbox">로그인 유지</label>
         <a class="find" href="/user/user_find_view">아이디/비밀번호 찾기</a>
@@ -53,7 +53,7 @@
         <div class="text">아직 계정이 없으신가요? <a class="join" href="/user/user_signup_view"><u>회원가입</u></a></div>
     </div>
     </div>
-</form>
+
       	      	
     </div>
   </div>
@@ -64,7 +64,7 @@
 	$(document).ready(function() {
 		
 
-		$("#loginForm").on("submit", function(e){
+		$(".loginBtn").on("click", function(e){
 			e.preventDefault();
 			let loginId = $("#loginId").val().trim();
 			let password = $("#password").val();
@@ -79,7 +79,7 @@
 	 		}
 	 		
 	 		//폼방식
-	 		let url = $(this).attr("action");
+/* 	 		let url = $(this).attr("action");
 	 		let params = $(this).serialize();
 	 		
 	 		$.post(url, params)
@@ -89,8 +89,27 @@
 	 			} else {
 	 				alert(data.errorMessage)
 	 				}
+	 			
+	 		});	 */
+	 		$.ajax({
+	 			type: "post"
+	 			,url: "/user/sign_in"
+	 			,data: {"loginId": loginId, "password":password}
+	 			
+	 			,success:function(data) {
+		 			if(data.result =="success") {	
+		 				location.reload(true);
+		 			} else {
+		 				alert(data.errorMessage)
+		 				}
 	 			}
-	 		});	
+				,error: function(e) {
+					alert("로그인 실패");
+				}
+	 			
+	 		});
+	 		
+	 		
 		
 	 		
 			

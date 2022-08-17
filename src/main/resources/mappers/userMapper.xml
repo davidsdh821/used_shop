@@ -56,6 +56,17 @@
 	
 	</select>
 	
+	<select id="selectUserById" parameterType="map" resultType="string">
+		SELECT 
+			`loginId`
+		FROM
+			`user`
+		WHERE
+			`userName` = #{userName} AND
+			`email` = #{email}
+	
+	</select>
+	
 	
 	
  

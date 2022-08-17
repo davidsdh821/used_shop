@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-grConsider defining a bean of type 'com.usedshop.user.dao.UserDAO' in your configuration.oup = 'com.usedshop'
+group = 'com.usedshop'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
