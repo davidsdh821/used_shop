@@ -26,7 +26,7 @@
         <hr>
         <div class="price-item">
             <h2 class="price-word">가격입력</h2>
-            <input type="number" class="form-control price" id="subject" placeholder="가격을 입력해주세요">
+            <input type="number" class="form-control price" id="price" placeholder="가격을 입력해주세요">
         </div>
         <hr>
         <!-- 배송비 부터 -->
@@ -38,8 +38,8 @@
         </div>
         <div class="state-box d-flex">	
         <h3 class="state-word">상품 상태</h3>
-          <label class="radios"><input type="radio" name="state" value="used"> 중고</label>
-          <label class="radios"><input type="radio" name="state" value="new"> 새제품</label>
+          <label class="radios"><input type="radio" name="state" value=1> 중고</label>
+          <label class="radios"><input type="radio" name="state" value=0> 새제품</label>
         </div>
         </div>
         <hr>
@@ -51,7 +51,12 @@
 	
 		<br>	
 		 <button type="button" class="createBtn btn btn-primary" id="createBtn">등록</button>		
-        </div>
+	        
+		<br>
+		<br>	        
+</div>
+
+
 
 
 
@@ -72,7 +77,88 @@
 			
 		    reader.readAsDataURL(files);
 		});
+		
+		$("#createBtn").on("click", function() {
+			let formData = new FormData();
+			let subject = $("#subject").val().trim();
+			let file = $("#file").val();
+			let price = $("#price").val().trim();
+			let delivery = $("#delivery").val().trim();
+			//1이면 중고 0이면 새재품
+			let state = $('input:radio[name="state"]:checked').val();
+			let explanation $("#explanation").val().trim();
+			
 
+			
+			if(subject == "" ) {
+	 			alert("제목을 입력하세요.");
+	 			return false;
+	 		}
+			if(file == "" ) {
+	 			alert("사진은 하나 이상이어야 합니다");
+	 			return false;
+	 		}
+			if(price == "" ) {
+	 			alert("가격을 입력하세요.");
+	 			return false;
+	 		}
+			if(delivery == "" ) {
+	 			alert("배달비를 입력하세요");
+	 			return false;
+	 		}
+			if(state == "" ) {
+	 			alert("제품의 상태를 선택하세요.");
+	 			return false;
+	 		}
+			if(explanation == "" ) {
+	 			alert("내용을 입력하세요.");
+	 			return false;
+	 		} else if(explanation < 10) {
+	 			alert("소개내용은 10자 이상이어야 합니다!")
+	 			return false;
+	 		}
+			
+			
+			formData.append("subject", subject);
+			formData.append("file", $('#file')[0].files[0]);
+			formData.append("price", price);
+			formData.append("delivery", delivery);
+			formData.append("state", state);
+			formData.append("explanation", explanation);
+			
+			//로그인이 안되있을때 막아주는 것도 필요
+			
+			$.ajax({
+				type:"post"
+					,url:"/post/create"
+						,data: formData
+						,encType:"multipart/form-data" //파일 업로드 필수 설정, 무조건 넣어야한다(이미지 넣을때만)
+						,processData: false //파일 업로드 필수 설정, data에 있는 것을 string으로 바꿔주는 것을 비활성화
+						,contentType: false //파일 업로드 필수 설정		 	
+				
+			
+					 	,success:function(data) {
+					 		if(data.result == "success") {
+					 			alert("가입 성공, 로그인해주세요")
+					 			location.href = "/post/post_list_view";
+					 		} else {
+					 			alert("회원가입중 오류가 발생했습니다")
+					 		}
+					 	}
+					 	,error: function(e) {
+				 			alert("회원가입에 실패했습니다.");
+				 		} 					
+			});
+			
+			
+			
+			
+			
+		});
+		
+		
+		
+		
 
 
     });

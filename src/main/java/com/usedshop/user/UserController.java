@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RequestMapping("/user")
 @Controller
@@ -41,13 +42,16 @@ public class UserController {
 	}
 	
 	@RequestMapping("/change_password_view")
-	public String changePw(Model model) {
+	public String changePw(
+			@RequestParam("loginId") String loginId,
+			Model model) {
+		
 		model.addAttribute("gnbViewName", "include/sign_up_gnb");
 		model.addAttribute("viewName", "user/change_password_view");
 		
 		
 		return "template/layout";
 	}
-	
+
 	
 }

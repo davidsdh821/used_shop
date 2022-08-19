@@ -1,19 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="/static/css/change_pwStyle.css">
 
 
+<div class="passwords">
 <h1>비밀번호 변경</h1>	
-<div>
-<label class="password1 d-none"><input id="pass_box1" type="password"
+<label class="password1"><input id="pass_box1" type="password"
 	class="form-control" placeholder="비밀번호를 입력해주세요"></label>
 <br>
 <br>
-<label class="password2 d-none"><input id="pass_box2" type="password"
+<label class="password2"><input id="pass_box2" type="password"
 	class="form-control" placeholder="비밀번호를 한 번 더 입력해주세요"></label>
 	
 <br>
 <br>
-
+<label class="buttons"><a href="#"><div class="change_pw">변경하기</div></a>
+	<a href="/post/post_list_view"><div class="back">뒤로가기</div></a> </label>
 
 </div>
 
@@ -21,21 +23,21 @@
 var reg = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/; //비밀번호 대소문자특수문자 포함 8자
 
 $(".change_pw").on("click", function() {
-	var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
 	var reg = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/; //비밀번호 대소문자특수문자 포함 8자
 
 	let password = $('#pass_box1').val();
 	let confirmPassword = $('#pass_box2').val();
 	
 
-	if(!password.match(reg)) {
+
+	if(password =="" || confirmPassword == "") {
+		alert("비밀번호를 입력하세요");
+		return false;
+	} else if(!password.match(reg) || !confirmPassword.match(reg)) {
 		alert("비밀번호 형식이 맞지 않습니다");
 		return false;
 		
-	} else if(password =="" || confirmPassword == "") {
-			alert("비밀번호를 입력하세요");
-			return false;
-		} 
+	} 
 		if(password != confirmPassword) {
 			alert("비밀번호가 일치하지 않습니다")
 			$('#password').val("");

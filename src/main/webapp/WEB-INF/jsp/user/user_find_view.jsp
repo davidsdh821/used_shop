@@ -219,7 +219,7 @@
 					,data:{"email": email}
 				 	,success:function(data) {
 				 		if(data.result == "success") {
-				 			$(".check-number1").removeClass('d-none');
+				 			$(".check-number2").removeClass('d-none');
 							alert("인증코드를 전송했습니다")
 				 		}  else {
 				 			alert("인증코드 전송을 실패했습니다")
@@ -302,7 +302,7 @@
 				return false;
 			}
 			
-
+	//84david@daum.net
 			
 	 		$.ajax({
 	 			type: "post"
@@ -311,7 +311,7 @@
 	 		
 	 			,success:function(data) {
 	 				if(data.result == "success") {
-	 					location.href = "/post/find_password_view";
+	 					location.href = "/user/change_password_view?loginId="${loginId};
 	 				} else {
 	 					alert(data.errorMessage);
 	 					

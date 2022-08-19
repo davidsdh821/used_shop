@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.find{
+.passwords{
 	margin: 0 auto;
     width: 500px;
 }
@@ -8,39 +8,18 @@ a {
     text-decoration: none;
     color: white;
 }
+
 h1 {
     text-align: center;
 }
-#name {
+#pass_box1 {
     width: 500px;
-    height: 50px;
-	
-	
-}
-#id {
-    width: 500px;
-    height: 50px;
-	
-	
-}
-
-#email1{
-	width: 350px;
-	height: 40px;
-}
-.send1 {
-    width: 150px;
     height: 40px;
 }
-#email2{
-	width: 350px;
-	height: 40px;
-}
-.send2 {
-    width: 150px;
+#pass_box2 {
+    width: 500px;
     height: 40px;
 }
-
 
 .buttons {
     width: 220px;
@@ -49,7 +28,6 @@ h1 {
     justify-content: space-between;
     margin: 0 auto;
 }
-
 .find_id {
     width: 100px;
     height: 40px;

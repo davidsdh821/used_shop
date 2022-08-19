@@ -74,11 +74,11 @@ public class UserRestController {
 			@RequestParam("loginId") String loginId,
 			@RequestParam("password") String password,
 			HttpServletRequest request ) {
-		
+		String encrypts = "";
 		//암호화
 		//데이터가 db에 남기 때문에 암호화할 필요가 있다.(개발자들도 보면 안되기 때문에 암호화를 시켜주는 것이다)
 		try {
-			String encrypts = EncryptUtils.encrypt(password);
+			encrypts = EncryptUtils.encrypt(password);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,7 +87,7 @@ public class UserRestController {
 		Map<String, Object> result = new HashMap<>();
 		
 		
-		User user = userBO.getUser(loginId, password);
+		User user = userBO.getUser(loginId, encrypts);
 		
 			
 		if(user != null) { //성공
@@ -156,6 +156,7 @@ public class UserRestController {
 		
 		return result;
 	}
+	
 	
 	
 	

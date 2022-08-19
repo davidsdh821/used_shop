@@ -20,8 +20,8 @@
         
   		<c:choose>
   		<c:when test="${not empty userLoginId}">
-  		<div class="sell"><a href="#">판매하기</a></div>
-        <div class="mypage"><a href="#">${userLoginId}</a></div>
+  		<div class="sell"><a href="/post/post_create_view">판매하기</a></div>
+        <div class="mypage"><a href="post_mypage_view">${userLoginId}</a></div>
         <div class="logout"><a href="/user/logout">로그아웃</a></div>
   		</c:when>
   		<c:otherwise>
