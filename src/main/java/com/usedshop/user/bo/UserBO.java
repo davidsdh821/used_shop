@@ -19,6 +19,11 @@ public class UserBO {
 		
 	}
 	
+	public User getUserPwByLoginId(String loginId, String email) {
+		
+		return userDAO.selectUserPwByLoginId(loginId, email);
+	}
+	
 	public void addUser(String name, String loginId, String password, String email) {
 		
 		

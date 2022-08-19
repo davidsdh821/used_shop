@@ -56,6 +56,24 @@
 	
 	</select>
 	
+		<select id="selectUserPwByLoginId" resultType="com.usedshop.user.model.User">
+		SELECT 
+				`userName`
+				,`loginId`
+				,`password`
+				,`email`
+				,`roll`
+				,`createdAt`
+				,`updatedAt`	
+		FROM
+			`user`
+		WHERE
+			`loginId` = #{loginId}	AND
+			`email` = #{email}
+
+	
+	</select>
+	
 	<select id="selectUserById" parameterType="map" resultType="string">
 		SELECT 
 			`loginId`

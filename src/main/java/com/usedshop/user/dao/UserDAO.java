@@ -11,6 +11,10 @@ public interface UserDAO {
 	
 	public boolean selectUserId(String loginId);
 	
+	public User selectUserPwByLoginId(
+			@Param("loginId") String loginId,
+			@Param("email") String email);
+	
 	
 	public void insertUser(
 			@Param("name") String name, 

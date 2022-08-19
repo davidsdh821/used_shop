@@ -131,16 +131,30 @@ public class UserRestController {
 		return result;
 	}
 	
-	@RequestMapping("/confirm_user")
+	@RequestMapping("/confirm_pw_chk")
 	public Map<String, Object> confirmUser(
 			@RequestParam("loginId") String loginId,
 			@RequestParam("email") String email
 			) {
 			Map<String, Object> result = new HashMap<>();	
+			
+			User user = userBO.getUserPwByLoginId(loginId, email);
+			
+			
+			
+			if(user == null) { //조회 되지 않는 경우
+				result.put("errorMessage", "존재하지 않는 사용자입니다");
+				
+			} else {
+				result.put("result", "success");
+				result.put("loginId", user);
+			}
+			
+		
+			
 		
 		
-		
-		
+		return result;
 	}
 	
 	

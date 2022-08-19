@@ -54,15 +54,8 @@
 	<div id="emailCheckDuplicated2" class="small text-danger d-none">인증번호를 다시 입력해주세요</div>
 	<div id="emailCheckOk2" class="small text-success d-none">이메일 인증 성공</div>
 	</div>
-<br>
-<div class="passwords d-none">
-	<label class="password1 d-none"><input id="pass_box1" type="password"
-	class="form-control" placeholder="비밀번호를 입력해주세요"></label>
-<br>
-<br>
-<label class="password2 d-none"><input id="pass_box2" type="password"
-	class="form-control" placeholder="비밀번호를 한 번 더 입력해주세요"></label>
-</div>	
+
+	
 <br>
 <br>
 <label class="buttons"><a href="#"><div class="change_pw">변경하기</div></a>
@@ -171,7 +164,7 @@
 					
 			}
 	 		if($('#idCheckOk1').hasClass('d-none')) {
-				alert("아이디 중복확인을 해주세요");
+	 			alert("옳바른 인증번호를 작성해주세요");
 				return false;
 			}
 			if($('#emailCheckOk1').hasClass('d-none')) {
@@ -272,11 +265,11 @@
 				 		} else if(data.result == "fail") {
 				 			$("#emailCheckDuplicated2").removeClass('d-none');
 				 		} else {
-				 			alert("중복 체크에 실패했습니다")
+				 			alert("이메일 인증 실패")
 				 		}
 				 	}
 				 	,error: function(e) {
-			 			alert("아이디 중복체크에 실패했습니다.");
+			 			alert("api 에러 발생");
 			 		} 
 					 
 				 });
@@ -291,28 +284,17 @@
 		
 		$(".change_pw").on("click", function() {
 			var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
-			var reg = /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/; //비밀번호 대소문자특수문자 포함 8자
+		
 			let loginId = $("#id").val().trim();
 			let email = $("#email2").val().trim();
-			let password = $('#pass_box1').val();
-			let confirmPassword = $('#pass_box2').val();
 			
  	 		if(loginId == "") {
 				alert("아이디를 입력해주세요");
 				return;
 				
 			}
-			
-	 		if(email == "") {
- 				alert("이메일을 입력해주세요")
-				return false;
-			} else if(!email.match(emailRule)) {
-					alert("이메일 형식이 맞지 않습니다");
-					return false;
-					
-			}
 	 		if($('#idCheckOk2').hasClass('d-none')) {
-				alert("아이디 중복확인을 해주세요");
+				alert("옳바른 인증번호를 작성해주세요");
 				return false;
 			}
 			if($('#emailCheckOk2').hasClass('d-none')) {
@@ -320,31 +302,16 @@
 				return false;
 			}
 			
-			if(!password.match(reg)) {
-				alert("비밀번호 형식이 맞지 않습니다");
-				return false;
-				
-			} else if(password =="" || confirmPassword == "") {
-	 			alert("비밀번호를 입력하세요");
-	 			return false;
-	 		} 
-	 		if(password != confirmPassword) {
-	 			alert("비밀번호가 일치하지 않습니다")
-	 			$('#password').val("");
-	 			$('#confirmPassword').val(""); //텍스트 값을 초기화
-	 			return false;
-	 		}
-			
+
 			
 	 		$.ajax({
 	 			type: "post"
-	 			,url: "/user/confirm_user"
+	 			,url: "/user/confirm_pw_chk"
 	 			,data: {"loginId":loginId, "email":email}
 	 		
 	 			,success:function(data) {
 	 				if(data.result == "success") {
-	 					alert("비밀번호가 변경되었습니다")
-	 					location.href = "/post/post_list_view";
+	 					location.href = "/post/find_password_view";
 	 				} else {
 	 					alert(data.errorMessage);
 	 					
@@ -352,7 +319,7 @@
 
 	 			}
  				,error: function(e) {
- 					alert("아이디 찾기 실패")
+ 					alert("유저 찾기 실패")
  				}
 	 			
 	 			

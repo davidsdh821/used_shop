@@ -40,6 +40,14 @@ public class UserController {
 		return "redirect:/post/post_list_view";
 	}
 	
+	@RequestMapping("/change_password_view")
+	public String changePw(Model model) {
+		model.addAttribute("gnbViewName", "include/sign_up_gnb");
+		model.addAttribute("viewName", "user/change_password_view");
+		
+		
+		return "template/layout";
+	}
 	
 	
 }
