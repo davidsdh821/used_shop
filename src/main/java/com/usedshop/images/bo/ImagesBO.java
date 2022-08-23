@@ -19,17 +19,12 @@ public class ImagesBO {
 	private ImagesDAO imagesDAO;
 	
 	public void addImages(List<MultipartFile> files, int postId, String userLoginId) {
-		List<String> imagePath = null;
-		
-		if(files != null) {
-			imagePath = FileManager.saveFile(userLoginId, files);
-				
-		}
-		
-		
-		for(int i = 0; i< files.size(); i++) {		
-			
-			imagesDAO.insertImages(imagePath.get(i), postId);
+		for(int i = 0; i< files.size(); i++) {	
+			String imagePath = null;
+			if(files != null) {	
+			imagePath = FileManager.saveFile(userLoginId, files.get(i));
+			imagesDAO.insertImages(imagePath, postId);
+			}
 			
 		}
 		
