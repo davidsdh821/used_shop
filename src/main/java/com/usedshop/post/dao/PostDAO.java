@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PostDAO {
 	
-	public int insertPost(
+	public void insertPost(
 			@Param("userId") int userId, 
 			@Param("subject") String subject, 
 			@Param("price") int price, 

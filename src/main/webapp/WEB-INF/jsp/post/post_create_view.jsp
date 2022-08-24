@@ -7,6 +7,7 @@
 
         <div class="content">
             
+            
             <div class="subject-item">
             <h2 class="subject-word">제목</h2>
             <input type="text" class="form-control subject" id="subject" placeholder="제목을 입력해주세요">
@@ -103,11 +104,13 @@
 	 			alert("사진은 하나 이상이어야 합니다");
 	 			return false;
 	 		}
+
 			if (imgs != "") { //파일이 비어있지 않는 경우만 검증
 				for(let i = 0; i < imgs.length; i++) {
 				let ext = [];
-				ext[i] = imgsNames[i].names.split(".").pop().toLowerCase(); //파일 경로를 .으로 나누고 마지막 문자열 배열 저장후 소문자로 변경
-				if ($.inArray(ext[i], [ "gif", "jpg", "jpeg", "png" ]) == -1) { //해당문자와 같지 않으면 -1로 표시가 된다
+				name = imgsNames[i]
+				ext[i] = name.split(".").pop().toLowerCase(); //파일 경로를 .으로 나누고 마지막 문자열 배열 저장후 소문자로 변경
+				if ($.inArray(ext[i], [ "gif", "jpg", "jpeg", "png", "PNG", "GIF", "JPG", "JPEG" ]) == -1) { //해당문자와 같지 않으면 -1로 표시가 된다
 					//js에서는 []안에 값만 넣으면 바로 배열이 된다.
 					alert("gif, jpg, jpeg, png 파일만 업로드 할 수 있습니다")
 					imgs = []; //파일을 비운다
@@ -117,7 +120,6 @@
 			}
 
 		}
-		
 	
 			
 			if(price == "" ) {
@@ -149,8 +151,8 @@
 			}
 
 			formData.append("price", price);
-			formData.append("productStatus", delivery);
-			formData.append("state", state);
+			formData.append("delivery", delivery);
+			formData.append("productStatus", state);
 			formData.append("content", explanation);
 			
 			//로그인이 안되있을때 막아주는 것도 필요
@@ -161,15 +163,19 @@
 					,url:"/post/create"
 						,data: formData
 						,async: false //동기식, 이게 있으면 뒤에있는 함수는 이 작업이 끝난 후 진행 됨.
-					 	,success:function(data) {
+					    ,processData: false
+					    ,contentType: false
+						,success:function(data) {
 					 		if(data.result == "success") {
 					 			formData2.append("postId", data.postId);
 					 			formData2.append("userLoginId", data.userLoginId);
-					 			
 					 			$.ajax({
 					 				type:"post"
 					 				,url: "/images/createimgs"
 					 				,data: formData2
+					 				,encType:"multipart/form-data" //파일 업로드 필수 설정, 무조건 넣어야한다(이미지 넣을때만)
+					 				,processData: false //파일 업로드 필수 설정, data에 있는 것을 string으로 바꿔주는 것을 비활성화
+					 				,contentType: false //파일 업로드 필수 설정
 					 				
 					 				,success:function(data) {
 					 					if(data.result2 == "succsess") {
@@ -179,23 +185,27 @@
 					 					} else {
 					 						alert("예기치 못한 오류가 발생하였습니다(이미지 전송)");
 					 					}
+					 					
+					 				}
 					 				 	,error: function(e) {
 					 			 			alert("작성 실패(이미지)");
 					 			 			
 					 			 		} 	
 					 				 	
 					 					
-					 				}
+					 				
 					 				
 					 				
 					 			}); //ajax2
+					 			
 					 			//다른 방법도 있지만 일단 이것부터 시도한다 예: promise
+					 		
 					 		} else {
 					 			alert(data.errorMessage)
 					 		}
 					 	}
 					 	,error: function(e) {
-				 			alert("작성 실패);
+				 			alert("작성 실패");
 				 			
 				 		} 	
 					 	

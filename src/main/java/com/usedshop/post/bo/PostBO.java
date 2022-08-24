@@ -11,9 +11,9 @@ public class PostBO {
 	private PostDAO postDAO;
 	
 	
-	public int addPost(int userId, String subject, int price, int delivery, String productStatus, String content) {
+	public void addPost(int userId, String subject, int price, int delivery, String productStatus, String content) {
 		
-		return postDAO.insertPost(userId, subject, price, delivery, productStatus, content);
+		 postDAO.insertPost(userId, subject, price, delivery, productStatus, content);
 	}
 	
 	
