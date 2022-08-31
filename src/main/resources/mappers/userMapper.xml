@@ -40,7 +40,8 @@
 	
 	<select id="selectUser" resultType="com.usedshop.user.model.User">
 		SELECT 
-				`userName`
+				`id`
+				,`userName`
 				,`loginId`
 				,`password`
 				,`email`

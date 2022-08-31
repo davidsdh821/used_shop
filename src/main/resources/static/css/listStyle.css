@@ -6,14 +6,11 @@
    
 
 }
-.line1 {
+.line {
     display: flex;
     justify-content: space-between;
 }
-.line2 {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 /* 박스 */
 .box{

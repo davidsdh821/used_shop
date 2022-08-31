@@ -30,4 +30,10 @@ public class ImagesBO {
 		
 	}
 	
+	public String getImagesListFirst(int postId) {
+		
+		return imagesDAO.selectImagesListFirst(postId);
+		
+	}
+	
 }

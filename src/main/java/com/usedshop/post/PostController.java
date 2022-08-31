@@ -1,17 +1,30 @@
 package com.usedshop.post;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.usedshop.post.bo.PostBO;
+import com.usedshop.post.model.CardView;
+import com.usedshop.post.model.Post;
 
 @RequestMapping("/post")
 @Controller
 public class PostController {
-
+	@Autowired
+	private PostBO postBO;
+	
+	
 	//http://localhost/post/post_list_view
 		@RequestMapping("/post_list_view")
 		public String PostListView(Model model) {
+			List<CardView> card = postBO.getCardViewList();
 			
+			model.addAttribute("card", card);
 			model.addAttribute("gnbViewName", "include/gnb");
 			model.addAttribute("viewName", "post/post_list_view");
 			
@@ -33,8 +46,13 @@ public class PostController {
 
 		//http://localhost/post/post_page_view
 		@RequestMapping("/post_page_view")
-		public String PostPageView(Model model) {
+		public String PostPageView(
+				@RequestParam("postId") int postId,
+				Model model) {
 			
+			Post post = postBO.getPostById(postId);
+			
+			model.addAttribute("result", post);
 			model.addAttribute("gnbViewName", "include/gnb");
 			model.addAttribute("viewName", "post/post_page_view");
 			

@@ -30,7 +30,55 @@
  	
  	</insert>
 
+	<select id="selectPostId" parameterType="int" resultType="int">
+		SELECT 
+			`id`
+		FROM
+			`post`
+		WHERE
+			`userId` = #{userId}
+			ORDER BY `id` DESC LIMIT 1		
+		
+	
+	</select>
+	
+	
+	
+	<select id="selectPostList" resultType="com.usedshop.post.model.Post">
+		SELECT
+			`id`
+			,`userId`
+			,`subject`
+ 			,`price`
+ 			,`delivery`
+ 			,`productStatus`
+ 			,`content`
+ 			,`createdAt`
+ 			,`updatedAt`
+		FROM
+			`post`
 
+	
+	</select>
 
+	<select id="selectPostById" resultType="com.usedshop.post.model.Post">
+	
+		SELECT
+			`id`
+			,`userId`
+			,`subject`
+ 			,`price`
+ 			,`delivery`
+ 			,`productStatus`
+ 			,`content`
+ 			,`createdAt`
+ 			,`updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id` = #{postId}	
 
+	
+	</select>
+	
 </mapper> 

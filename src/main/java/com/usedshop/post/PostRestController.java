@@ -34,7 +34,7 @@ public class PostRestController {
 		
 		Map<String, Object> result = new HashMap<>();
 		
-		Post post = new Post();
+		
 		
 		//세션에서 작성자의 정보를 꺼낸다
 		Object userIdObject =  session.getAttribute("userId"); //세션의 값이 잘 안 꺼내진다면, 로그인 한 곳에서 userId setAttribute가 됬는지 확인해야한다.
@@ -52,7 +52,7 @@ public class PostRestController {
 		//insert
 		postBO.addPost(userId, subject, price, delivery, productStatus, content);
 		
-		int postId = post.getId();
+		int postId = postBO.getPostId(userId);
 		
 		result.put("postId", postId);
 		result.put("userLoginId", userLoginId);

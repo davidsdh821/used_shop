@@ -25,4 +25,16 @@
 	</insert>
 
 
+	<select id="selectImagesListFirst" parameterType="int" resultType="String">
+		SELECT 
+			`imagePath`
+		FROM
+			`images`
+		WHERE	
+			`postId` = #{postId}	
+			
+		ORDER BY `id` ASC LIMIT 1;		
+
+	</select>
+
 </mapper>

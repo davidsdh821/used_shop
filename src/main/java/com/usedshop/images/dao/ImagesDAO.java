@@ -13,4 +13,7 @@ public interface ImagesDAO {
 	public void insertImages(
 			@Param("imagePath") String imagePath, 
 			@Param("postId") int postId);
+	
+	
+	public String selectImagesListFirst(int postId);
 }
