@@ -117,39 +117,37 @@
 		
 		
 		//검색
-		$(".button").on('click', function() {
+		 $(".button").on('click', function() {
 			let word = $("#search-word").val().trim();
+			
+			
 			
 			if(word == "") {
 				alert("검색어를 입력해주세요")
 				return;
 			}
 			
-			$.ajax({
+			  $.ajax({
 				type: "post"
-				,url: "/post/search"
-				,data: {"word", word}
+				,url: "/post/search_view/" + word
+				,data: {"word":word}
 			
 			
 				,success: function(data) {
-					if(data.result == "success") {
-						
-					} else {
-						alert(data.errorMessage)
-					}
+				
 				}
 				,error: function(e) {
-					alert("error" + e)
+					alert("검색 실패" + e)
 				}
 				
 				
 				
-			});
+			});  
 			
 			
 			
 			
-		});
+		}); 
 		
 		
 		

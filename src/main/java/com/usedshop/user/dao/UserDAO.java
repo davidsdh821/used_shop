@@ -31,5 +31,5 @@ public interface UserDAO {
 			@Param("userName") String userName, 
 			@Param("email") String email);
 	
-	
+	public String selectLoginIdByUserId(int userId);
 }

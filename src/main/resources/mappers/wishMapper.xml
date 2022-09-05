@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.usedshop.wish.dao.WishDAO">
+		<select id="selectCountWish" parameterType="int" resultType="int">
+			SELECT 
+				count(*) 
+			FROM 
+				`wish`
+			WHERE `postId` = #{PagePostId}	
+		
+	
+	
+	</select>
+	
+	<select id="selectCheckWish" parameterType="map" resultType="boolean">
+			SELECT 
+				count(*) 
+			FROM `wish`
+				WHERE `userId` = #{userId} 
+				AND `postId` = #{postId}
+
+	</select>
+	
+		<insert id="insertWish" parameterType="map">
+		INSERT INTO `wish`
+			(
+				`postId`
+				,`userId`
+				,`createdAt`
+			)
+		VALUES
+			(
+				#{postId}
+				,#{userId}
+				,NOW()
+			)
+				
+	
+	
+	</insert>
+	
+		<delete id="deleteWish" parameterType="map">
+			DELETE FROM `wish`
+				WHERE `userId` = #{userId} 
+				AND `postId` = #{postId}
+
+		</delete>
+		
+		
+
+
+</mapper>

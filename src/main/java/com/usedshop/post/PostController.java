@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.usedshop.post.bo.PostBO;
 import com.usedshop.post.model.CardView;
-import com.usedshop.post.model.Post;
+import com.usedshop.post.model.PageView;
 
 @RequestMapping("/post")
 @Controller
@@ -49,10 +49,12 @@ public class PostController {
 		public String PostPageView(
 				@RequestParam("postId") int postId,
 				Model model) {
+			postBO.setPostView(postId);
+			PageView page = postBO.getPostById(postId);
 			
-			Post post = postBO.getPostById(postId);
 			
-			model.addAttribute("result", post);
+			
+			model.addAttribute("result", page);
 			model.addAttribute("gnbViewName", "include/gnb");
 			model.addAttribute("viewName", "post/post_page_view");
 			
@@ -70,7 +72,25 @@ public class PostController {
 			
 			return "template/layout";
 		}
-
+		
+		
+		@RequestMapping("/search_view/{word}")
+		public String search(
+				@RequestParam("word") String word,
+				Model model) {
+			//word는 subject로 검색이 된다
+			
+			
+			List<CardView> card = postBO.getCardViewListByWord(word);
+			
+			model.addAttribute("card", card);
+			model.addAttribute("gnbViewName", "include/gnb");
+			
+			model.addAttribute("viewName", "post/post_search_view");
+			
+			
+			return "template/layout";
+		}
 		
 	
 }

@@ -16,4 +16,6 @@ public interface ImagesDAO {
 	
 	
 	public String selectImagesListFirst(int postId);
+	
+	public List<String> selectImageByPagePostId(int PagePostId);
 }

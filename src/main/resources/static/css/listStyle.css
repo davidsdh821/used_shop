@@ -2,13 +2,16 @@
 
 .content{
     width: 1200px;
-    height: 700px;
+    
    
 
 }
 .line {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    
+	grid-template-columns: 250px 250px 250px 250px;
+	grid-column-gap: 66.6px;
+	grid-row-gap: 20px;
 }
 
 

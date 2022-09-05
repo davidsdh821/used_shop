@@ -81,4 +81,39 @@
 	
 	</select>
 	
+	
+	<select id="selectCardViewListByWord" parameterType="String" resultType="com.usedshop.post.model.Post">
+		SELECT
+			`id`
+			,`userId`
+			,`subject`
+ 			,`price`
+ 			,`delivery`
+ 			,`productStatus`
+ 			,`content`
+ 			,`createdAt`
+ 			,`updatedAt`
+		FROM
+			`post`
+		WHERE	
+			`subject` LIKE '%${word}%'
+	
+	
+	
+	</select>
+	
+	
+	<update id="updatePostView" parameterType="int">
+		UPDATE 
+			`post` 
+		SET 
+			`view` = `view` + 1
+		WHERE 
+			`id` = #{postId}
+		
+		
+	
+	</update>
+	
+	
 </mapper> 

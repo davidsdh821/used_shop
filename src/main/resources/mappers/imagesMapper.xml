@@ -25,7 +25,7 @@
 	</insert>
 
 
-	<select id="selectImagesListFirst" parameterType="int" resultType="String">
+	<select id="selectImagesListFirst" parameterType="int" resultType="string">
 		SELECT 
 			`imagePath`
 		FROM
@@ -35,6 +35,18 @@
 			
 		ORDER BY `id` ASC LIMIT 1;		
 
+	</select>
+	
+	
+	<select id="selectImageByPagePostId" parameterType="int" resultType="String">
+		SELECT 
+			`imagePath`
+		FROM
+			`images`
+		WHERE	
+			`postId` = #{PagePostId}	
+	
+	
 	</select>
 
 </mapper>

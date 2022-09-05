@@ -36,4 +36,9 @@ public class ImagesBO {
 		
 	}
 	
+	public List<String> getImageByPagePostId(int PagePostId) {
+		
+		return imagesDAO.selectImageByPagePostId(PagePostId);
+	}
+	
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.usedshop.post.model.CardView;
 import com.usedshop.post.model.Post;
 
 @Repository
@@ -23,4 +24,8 @@ public interface PostDAO {
 	public List<Post> selectPostList();
 	
 	public Post selectPostById(int postId);
+	
+	public List<Post> selectCardViewListByWord(String word);
+	
+	public void updatePostView(int postId);
 }
