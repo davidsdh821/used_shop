@@ -93,6 +93,10 @@ public class PostBO {
 		
 		page.setWish(wish);
 		
+		
+		
+		
+		
 		return page;
 		
 	}

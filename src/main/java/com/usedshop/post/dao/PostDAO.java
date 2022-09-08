@@ -25,6 +25,8 @@ public interface PostDAO {
 	
 	public Post selectPostById(int postId);
 	
+	
+	
 	public List<Post> selectCardViewListByWord(String word);
 	
 	public void updatePostView(int postId);

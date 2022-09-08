@@ -13,7 +13,8 @@
 }
 
 li {
-    list-style: none
+    list-style: none;
+    
 }
 .infos {
     width: 1200px;
@@ -30,7 +31,7 @@ li {
 .slide {
         min-width: 500px;
         height: 500px;
- 	
+ 		
        
 }
 
@@ -38,6 +39,7 @@ li {
 		float : left;
         width: 500px;
         height: 500px;
+        
 }
 
 .slide>li>img {
