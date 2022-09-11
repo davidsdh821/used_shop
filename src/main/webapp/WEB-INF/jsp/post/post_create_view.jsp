@@ -16,12 +16,14 @@
         <h2>이미지 업로드</h2>
         <div class="img-item d-flex">
             <div class="img-upload">
-            <input type="file" id="file" accept=".gif,.jpg,.png,.jpeg" class="d-none multi" multiple="10">
+            <input type="file" id="file" accept=".gif,.jpg,.png,.jpeg" class="d-none multi" multiple="10" name="urls">
             <a href="#" id="fileUploadBtn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/></svg>
             </a>
         </div>
-			
+		<div id="img-preview">
+      <!-- <img id="imgs" style="width: 150; height: 150px" /> -->
+    	</div>
         
         </div>
         <hr>
@@ -66,6 +68,7 @@
     	
     	var imgs = []; //이미지가 들어갈 배열
     	var imgsNames = []; //이미지 이름이 들어갈 배열
+
     	let fileTag = document.querySelector("#file");
         $('#fileUploadBtn').on('click', function() {
             $('#file').click();
@@ -73,14 +76,19 @@
         });
         $('#file').change(function() {
            let imgTag = document.querySelector("#imgs");
-           
-            for (let i = 0; i < $(this).get(0).files.length; ++i) {
             	imgs.push($(this).get(0).files[i]);
             	imgsNames.push($(this).get(0).files[i].name);
+					
             	console.log(imgs[i])
             	console.log(imgsNames[i])
             }
+
+
+            
          });
+        
+        
+        
         
 
 		$("#createBtn").on("click", function() {

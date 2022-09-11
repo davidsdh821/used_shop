@@ -41,4 +41,6 @@ public class ImagesBO {
 		return imagesDAO.selectImageByPagePostId(PagePostId);
 	}
 	
+
+	
 }
