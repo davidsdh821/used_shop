@@ -16,9 +16,10 @@
 				</c:forEach>
 
 			</ul>
-			
-			<span class="prev">&lt;</span>
-        	<span class="next">&gt;</span>
+				<c:if test="${fn:length(result.images)> 1}">
+					<span class="prev">&lt;</span>
+        			<span class="next">&gt;</span>
+				</c:if>	
 		</div>	
           <div class="text_info">
             <h2>${result.post.subject}</h2>
