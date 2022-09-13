@@ -76,6 +76,7 @@
         });
         $('#file').change(function() {
            let imgTag = document.querySelector("#imgs");
+           for (let i = 0; i < $(this).get(0).files.length; ++i) {
             	imgs.push($(this).get(0).files[i]);
             	imgsNames.push($(this).get(0).files[i].name);
 					
