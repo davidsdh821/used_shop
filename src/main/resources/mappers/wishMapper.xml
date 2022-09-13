@@ -49,6 +49,36 @@
 		</delete>
 		
 		
+		
+		<select id="selectWishList" resultType="com.usedshop.post.model.Post">
+		
+		SELECT
+			`id`
+			,`userId`
+			,`subject`
+ 			,`price`
+ 			,`view`
+ 			,`delivery`
+ 			,`productStatus`
+ 			,`content`
+ 			,`createdAt`
+ 			,`updatedAt`
+		FROM
+			`post`
+		WHERE
+			`id` = #{wishPostId}
+		</select>
+		
+		<select id="selectWishPostIds" resultType="int">
+			SELECT
+				`postId`
+			FROM
+				`wish`
+			WHERE 
+				`userId` = #{userId}	
+		
+		
+		</select>
 
 
 </mapper>

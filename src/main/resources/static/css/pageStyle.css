@@ -13,7 +13,8 @@
 }
 
 li {
-    list-style: none
+    list-style: none;
+    
 }
 .infos {
     width: 1200px;
@@ -23,21 +24,27 @@ li {
 .img-boxs {
 		width: 500px;
         height: 500px;
-        overflow: hidden;
-       
+        
+       	overflow : hidden;
  		position: relative;
+
 }
 .slide {
-        min-width: 500px;
+      
         height: 500px;
- 	
+      
+        display: flex;
+ 		
+       
+ 		
        
 }
 
 .slide>li {
-		float : left;
+		
         width: 500px;
         height: 500px;
+        
 }
 
 .slide>li>img {
@@ -162,30 +169,12 @@ li {
     border-radius: 100%;
 }
 
-.sell1 {
+.sell {
     width: 130px;
     height: 150px; 
     text-align: center;
 }
-.sell_img1 {
-    width: 130px;
-    height: 130px; 
-}
-.sell2 {
-    width: 130px;
-    height: 150px; 
-    text-align: center;
-}
-.sell_img2 {
-    width: 130px;
-    height: 130px; 
-}
-.sell3 {
-    width: 130px;
-    height: 150px; 
-    text-align: center;
-}
-.sell_img3 {
+.sell_img {
     width: 130px;
     height: 130px; 
 }
