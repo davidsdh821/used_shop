@@ -10,18 +10,20 @@
         	<div class="img-boxs">
 			<ul class="slide">
 				<c:forEach var="images" items="${result.images}">
-					<li>
+					<li class="imgs">
 						<img alt="이미지" src="${images}">
 					</li>
 				</c:forEach>
 
 			</ul>
-			<span class="prev">&lt;</span>
-        	<span class="next">&gt;</span>
+				<c:if test="${fn:length(result.images)> 1}">
+					<span class="prev">&lt;</span>
+        			<span class="next">&gt;</span>
+				</c:if>	
 		</div>	
           <div class="text_info">
             <h2>${result.post.subject}</h2>
-            <h1>${result.post.price}</h1>
+            <h1>${result.post.price} 원</h1>
             <div class="buttons2">
               <a href="#" class="wish-btn" data-post-id="${result.post.id}"><div class="good"><img class="good_img" src="/static/img/좋아요.png" alt="찜">
               ${result.wish}
@@ -57,9 +59,9 @@
             <div class="profile">
               <a href="#"><img class="profile_img" src="/static/img/테스트사진.jpg" alt="">${result.loginId}</a>
             </div>
-              <a href="#"><div class="sell1"><img class="sell_img1" src="/static/img/테스트사진.jpg" alt="">거래 제목</div></a>
-              <a href="#"><div class="sell2"><img class="sell_img2" src="/static/img/테스트사진.jpg" alt="">거래 제목</div></a>
-              <a href="#"><div class="sell3"><img class="sell_img3" src="/static/img/테스트사진.jpg" alt="">거래 제목</div></a>
+            	<c:forEach var="card" items="${result.userPost}">
+              	<a href="/post/post_page_view?postId=${card.post.id}"><div class="sell"><img class="sell_img" src="${card.image}" alt="사진">${card.post.subject}</div></a>
+             	</c:forEach>
           </div>
         </div>
 </div>
@@ -69,6 +71,14 @@
 
 <script>
 $(document).ready(function() {
+	
+	
+	var count = document.getElementsByClassName('imgs').length;   
+	var size = 500 * count;
+	
+	
+	$('.slide').css('width', size);
+	
     $('.prev').click(function(){
     	$('.slide li:last').prependTo('.slide');
     	$('.slide').css('margin-left',-500);

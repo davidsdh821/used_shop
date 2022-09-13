@@ -10,7 +10,7 @@
  
 
 <div class="header">
-<div class="logo">임시 로고</div>
+<div class="logo"><a href="/post/post_list_view">임시 로고</a></div>
         <div class="search">
           <div class="search-box">
             <input type="text" placeholder="검색어 입력" id="search-word"/>

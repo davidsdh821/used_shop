@@ -93,6 +93,27 @@ public class PostBO {
 		
 		page.setWish(wish);
 		
+		//유저 정보
+		List<CardView> userPost = new ArrayList<>();
+		List<Post> postList = postDAO.selectUserPostLimit3(userId);
+		for(Post posts : postList) {
+			CardView card = new CardView();
+			
+			card.setPost(posts);
+			
+			int postIds = posts.getId();
+			
+			String image = imagesBO.getImagesListFirst(postIds);
+			
+			card.setImage(image);
+			
+			userPost.add(card);
+		}
+		
+		
+		page.setUserPost(userPost);
+		
+		
 		return page;
 		
 	}
@@ -117,6 +138,7 @@ public class PostBO {
 			
 			card.setImage(image);
 			
+			
 		
 			result.add(card);
 		}
@@ -128,9 +150,48 @@ public class PostBO {
 	public void setPostView(int postId) {
 		
 		
-		postDAO.updatePostView(postId);
+		 postDAO.updatePostView(postId);
 	}
 	
+	public List<Post> getUserPostLimit3(int userId) {
+		
+		return postDAO.selectUserPostLimit3(userId);
+		
+		
+	}
+	
+	
+	//마이 페이지
+	public List<CardView> getMyCardViewList(int userId) {
+		List<CardView> result = new ArrayList<>();
+		
+		//이곳에서 최신순으로 바꿀 수 있다
+		
+		List<Post> postList = getMyPostList(userId);
+		for(Post post : postList) {
+			
+			CardView card = new CardView();
+			
+			card.setPost(post);
+			
+			int postId = post.getId();
+			
+			String image = imagesBO.getImagesListFirst(postId);
+			
+			card.setImage(image);
+			
+		
+			result.add(card);
+		}
+	
+		return result;
+	
+	} 
+	
+	public List<Post> getMyPostList(int userId) {
+		
+		return postDAO.selectMyPostList(userId);
+	}
 	
 	
 	

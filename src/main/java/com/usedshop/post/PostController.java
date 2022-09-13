@@ -2,6 +2,8 @@ package com.usedshop.post;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,7 +66,13 @@ public class PostController {
 		
 		//http://localhost/post/post_mypage_view
 		@RequestMapping("/post_mypage_view")
-		public String PostMyPageView(Model model) {
+		public String PostMyPageView(Model model,
+			 HttpSession session) {
+			Object userIdObject = session.getAttribute("userId");
+			int userId = (int)userIdObject;
+			
+			List<CardView> card = postBO.getMyCardViewList(userId);
+			model.addAttribute("card", card);
 			
 			model.addAttribute("gnbViewName", "include/gnb");
 			model.addAttribute("viewName", "post/post_mypage_view");

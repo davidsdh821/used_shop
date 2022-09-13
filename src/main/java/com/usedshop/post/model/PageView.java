@@ -6,6 +6,14 @@ public class PageView {
 	private Post post;
 	private List<String> images;
 	private String loginId;
+	private List<CardView> userPost;
+	
+	public List<CardView> getUserPost() {
+		return userPost;
+	}
+	public void setUserPost(List<CardView> userPost) {
+		this.userPost = userPost;
+	}
 	private int wish;
 	
 	public int getWish() {
